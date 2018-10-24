@@ -1,16 +1,18 @@
 $large-font: 36px;
+$large-x-font: 24px;
+$big-font: 18px;
 $medium-font: 16px;
-$small-font: 13px;
+$small-font: 14px;
 
 $default-transition: .5s cubic-bezier(0.23, 1, 0.320, 1);
 
 $background: #FFFFFF;
-$foreground: #131313;
-$foreground-hover: #0088ff;
-$selection-fg: #fff;
-$selection-bg: #4e4e4e;
+$foreground: #000000;
+$primary: #9b6f4c;
+$primary-invert: #FFF;
+$primary-x: #372921;
+$primary-x-invert: #FFF;
 $small-font-color: #4e4e4e;
-$price-color: #4e4e4e;
 $list-separator: #f2f2f2;
 $item-hover: #fafdff;
 

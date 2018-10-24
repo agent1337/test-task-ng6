@@ -1,29 +1,28 @@
-<div *ngIf="data">
-  <div>
-    <h3 class="text-uppercase">
+<div class="extras-group" *ngIf="data">
+  <div class="extra-name px-4 py-1 d-flex justify-content-between align-items-center">
+    <h5 class="text-uppercase m-0 py-4">
       {{data.name}}
       <em *ngIf="isRequired">
-        required
+        (required)
       </em>
-    </h3>
-    <a *ngIf="!isRequired && data.items.length > 0" (click)="reset()">
+    </h5>
+    <a *ngIf="canReset" (click)="reset()">
       reset
     </a>
   </div>
-  <div *ngIf="isRequired">
-    Please select 1 item
+  <div class="px-4 py-3 req-text" *ngIf="isRequired && data.items.length < data.min">
+    Please select {{data.min}} item(s)
   </div>
-  <div>
-    <div *ngFor="let item of data.options; trackBy: trackByFn; let ind = index;">
-      <input
-        [type]="inputType"
-        [value]="item"
-        [name]="data.id"
-        [id]="item.id"
-        (change)="onSelectionChange($event, item)"
-        [checked]="isChecked(item)"
-        >
-      <label for="item.id">{{item.name}}</label>
+  <div class="options">
+    <div class="px-4 " *ngFor="let item of data.options; trackBy: trackByFn; let ind = index;">
+      <label class="option d-flex justify-content-between m-x my-2 py-3">
+        <div>
+          {{item.name}}
+          <em>($ {{item.price}})</em>
+        </div>
+        <input [type]="inputType" [value]="item" [name]="data.id" [id]="item.id" (change)="onSelectionChange($event, item)" [checked]="isChecked(item)">
+        <div class="checkmark" [ngClass]="inputType"></div>
+      </label>
     </div>
   </div>
 </div>

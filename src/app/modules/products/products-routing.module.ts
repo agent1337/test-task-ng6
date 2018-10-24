@@ -5,26 +5,20 @@ import { ProductsComponent } from './products.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'products',
     component: ProductsComponent,
     children: [
       {
         path: 'buy',
-        // loadChildren: async () => (await import('../buy-product/buy-product.module')).BuyProductModule,
         loadChildren: '../buy-product/buy-product.module#BuyProductModule',
       }
     ]
   },
-  // {
-  //   path: 'buy',
-  //   children: [
-  //     {
-  //       path: '',
-  //       // loadChildren: async () => (await import('../buy-product/buy-product.module')).BuyProductModule,
-  //       loadChildren: '../buy-product/buy-product.module#BuyProductModule',
-  //     }
-  //   ]
-  // }
+  {
+    path: '**',
+    redirectTo: 'products',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

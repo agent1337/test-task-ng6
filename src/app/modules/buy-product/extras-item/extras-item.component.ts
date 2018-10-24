@@ -6,6 +6,7 @@ import { Item } from '../../shared/interfaces/products-interface';
 @Component({
   selector: 'app-extras-item',
   templateUrl: './extras-item.component.html',
+  styleUrls: ['./extras-item.component.scss'],
 })
 export class ExtrasItemComponent {
 
@@ -21,6 +22,10 @@ export class ExtrasItemComponent {
 
   get inputType(): 'radio' | 'checkbox' {
     return this.data.max > 1 ? 'checkbox' : 'radio';
+  }
+
+  get canReset(): boolean {
+    return this.data.items.length > 0 && (!this.isRequired || this.data.min > 1);
   }
 
   isChecked(item: Item): boolean {
@@ -51,6 +56,4 @@ export class ExtrasItemComponent {
   trackByFn(index, item): number | string {
     return item.id && index;
   }
-
-  constructor() {}
 }

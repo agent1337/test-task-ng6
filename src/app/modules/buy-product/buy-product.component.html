@@ -1,22 +1,23 @@
-<ngx-spinner bdColor="rgba(0,0,0,0.3)" size="large" color="rgb(0, 136, 255)" type="line-scale-pulse-out">
+<ngx-spinner bdColor="rgba(0,0,0,0.3)" size="large" color="rgb(155,111,76)" type="line-scale-pulse-out">
 </ngx-spinner>
 <app-modal (OnClose)="onCloseModal()" *ngIf="product && initialized">
   <form class="product pb-4" [formGroup]="form">
     <a class="p-3 back" (click)="goBack()">
       <svg class="back-icon p-2" viewBox="0 0 512 512">
-        <g>
-          <path d="M6.969,265.678l152.274,152.274c9.29,9.291,24.357,9.291,33.648,0c9.292-9.292,9.292-24.356,0-33.648L81.234,272.646   h406.675c13.14,0,23.793-10.654,23.793-23.793c0-13.138-10.653-23.793-23.793-23.793H81.234l111.653-111.656   c9.292-9.294,9.292-24.357,0-33.648c-4.646-4.643-10.735-6.97-16.824-6.97c-6.09,0-12.179,2.327-16.824,6.97L6.969,232.029   C-2.323,241.321-2.323,256.386,6.969,265.678z" />
-        </g>
+        <path d="M6.969,265.678l152.274,152.274c9.29,9.291,24.357,9.291,33.648,0c9.292-9.292,9.292-24.356,0-33.648L81.234,272.646   h406.675c13.14,0,23.793-10.654,23.793-23.793c0-13.138-10.653-23.793-23.793-23.793H81.234l111.653-111.656   c9.292-9.294,9.292-24.357,0-33.648c-4.646-4.643-10.735-6.97-16.824-6.97c-6.09,0-12.179,2.327-16.824,6.97L6.969,232.029   C-2.323,241.321-2.323,256.386,6.969,265.678z" />
       </svg>
     </a>
     <img [alt]="product.name" [src]="product.images.full_size" />
     <div class="text-center pt-4 pb-1 px-3">
       <div class="description">
         <h3 class="pt-4 font-weight-bold">{{product.name}}</h3>
-        <h6 class="pb-4 pt-3 mb-4">{{product.description}}</h6>
+        <h6 class="pb-4 pt-2 mb-4">{{product.description}}</h6>
       </div>
-      <div class="price-count d-flex justify-content-between">
-        <span>$ {{product.price}}</span>
+      <div class="price-count py-3 d-flex justify-content-between">
+        <span>
+          <del *ngIf="product.before_sale_price">$ {{product.before_sale_price}}</del>
+          $ {{product.price}}
+        </span>
         <div class="product-count">
           <app-products-count [min]="1" [max]="10" formControlName="order">
           </app-products-count>
@@ -26,46 +27,14 @@
     <div class="extras">
       <app-extras formControlName="extras"></app-extras>
     </div>
-    <div class="text-center">
-      <button class="submit col-md-8 col-sm-10 py-3 px-4" (click)="buy()" [disabled]="form.invalid">
+    <div class="text-center py-3 mt-4 d-flex mx-2">
+      <button class="submit py-2 px-4 mx-4 flex-grow-1" (click)="buy()" [disabled]="form.invalid">
         <div class="d-flex justify-content-between">
-          <span><svg width="24px" viewBox="0 0 510 510" >
-            <g>
-              <g id="shopping-cart">
-                <path d="M153,408c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S181.05,408,153,408z M0,0v51h51l91.8,193.8L107.1,306    c-2.55,7.65-5.1,17.85-5.1,25.5c0,28.05,22.95,51,51,51h306v-51H163.2c-2.55,0-5.1-2.55-5.1-5.1v-2.551l22.95-43.35h188.7    c20.4,0,35.7-10.2,43.35-25.5L504.9,89.25c5.1-5.1,5.1-7.65,5.1-12.75c0-15.3-10.2-25.5-25.5-25.5H107.1L84.15,0H0z M408,408    c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S436.05,408,408,408z"/>
-              </g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            </svg></span>
+          <span>
+            <svg width="25px" viewBox="0 0 510 510" >
+              <path d="M153,408c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S181.05,408,153,408z M0,0v51h51l91.8,193.8L107.1,306    c-2.55,7.65-5.1,17.85-5.1,25.5c0,28.05,22.95,51,51,51h306v-51H163.2c-2.55,0-5.1-2.55-5.1-5.1v-2.551l22.95-43.35h188.7    c20.4,0,35.7-10.2,43.35-25.5L504.9,89.25c5.1-5.1,5.1-7.65,5.1-12.75c0-15.3-10.2-25.5-25.5-25.5H107.1L84.15,0H0z M408,408    c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S436.05,408,408,408z"/>
+            </svg>
+          </span>
           <span>ADD {{count}} TO CARD</span>
           <span>$ {{fullPrice}}</span>
         </div>

@@ -121,11 +121,10 @@ export class BuyProductService {
   }
 
   buyProduct(data: PostData): Observable<boolean> {
-    const d = Object.assign({}, data);
-    d.extras.forEach((element: ExtrasExtended) => {
+    data.extras.forEach((element: ExtrasExtended) => {
       delete element.options;
     });
-    alert(`post data is ${JSON.stringify(d)}`);
+    alert(`post data is ${JSON.stringify(data)}`);
     return of(true);
   }
 }

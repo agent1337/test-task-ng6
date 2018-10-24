@@ -1,5 +1,5 @@
-<div class="product-count">
+<div class="product-count d-flex">
   <button (click)="changeCount(-1)" [disabled]="value === min">-</button>
-    {{value}}
+  <div class="px-4 mx-2">{{value}}</div>
   <button (click)="changeCount()" [disabled]="value === max">+</button>
 </div>

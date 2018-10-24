@@ -61,6 +61,4 @@ export class ProductsCountComponent {
   registerOnTouched(fn: any): void {
     this.onTouchedCallback = fn;
   }
-
-  constructor() {}
 }

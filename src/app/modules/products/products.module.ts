@@ -11,6 +11,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     SharedModule,
     ProductsRoutingModule
   ],
+  exports: [ProductsRoutingModule],
   providers: [ProductsService],
   declarations: [ProductsComponent, ProductItemComponent]
 })

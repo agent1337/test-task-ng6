@@ -91,8 +91,8 @@ export class BuyProductComponent implements OnInit, OnDestroy {
   private createGroup(): void {
     const group = {
       id: [this.product.id, Validators.nullValidator],
-      order: [{ value: this.product.order, disabled: false }, [Validators.nullValidator]],
-      category: [this.product.category, Validators.nullValidator],
+      order: [{ value: this.product.order, disabled: false }, [Validators.required, Validators.pattern('^[0-9]')]],
+      category: [this.product.category, Validators.required],
     };
     const extras: ExtrasExtended[] = [];
     this.form = this.fb.group(group);
@@ -104,23 +104,9 @@ export class BuyProductComponent implements OnInit, OnDestroy {
     });
     this.selectedExtras = extras;
     const control = new FormControl(
-      // this.selectedExtras, Validators.compose([Validators.required, ExtrasValidator.ValidateExtras])
-      this.selectedExtras, Validators.compose([ExtrasValidator.ValidateExtras])
+      this.selectedExtras, [Validators.required, ExtrasValidator.ValidateExtras]
     );
     this.form.addControl('extras', control);
-    // this.form.get('extras').valueChanges.pipe(takeWhile(() => this.alive))
-    //   .subscribe((val) => {
-    //     console.log('CHAAADADA');
-    //     // this.form.updateValueAndValidity();    // let extraPrice = 0;
-    //     // val.forEach((extra: ExtrasExtended) => {
-    //     //   extra.items.forEach((item: Item) => {
-    //     //     extraPrice += item.price;
-    //     //   });
-    //     // });
-    //     // this.fullPrice = this.product.price * this.product.order + extraPrice;
-    //     // this.form
-    //     // console.log('changes!!!', val);
-    //   });
     this.initialized = true;
   }
 

@@ -1,9 +1,7 @@
 @import "../../../../theme/theme-variables.scss";
 
-$inc-btn-bg: #9b6f4c;
 $inc-btn-disabled-bg: #acacb1;
-$inc-btn-fg: #FFF;
-$inc-btn-size: 34px;
+$inc-btn-size: 38px;
 
 input {
   font-weight: inherit;
@@ -12,8 +10,8 @@ input {
 .product-count {
 
   button {
-    background-color: $inc-btn-bg;
-    color: $inc-btn-fg;
+    background-color: $primary;
+    color: $primary-invert;
     cursor: pointer;
     border-radius: 50%;
     height: $inc-btn-size;

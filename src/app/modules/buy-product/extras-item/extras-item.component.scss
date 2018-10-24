@@ -1,1 +1,90 @@
 @import "../../../../theme/theme-variables.scss";
+
+$name-bg: #f2f2f2;
+$name-fg: #000;
+$name-em-color: #818181;
+$req-text-bg: #e4e4e4;
+$input-outline: #707070;
+$input-hover: #f7f7f7;
+
+.extras-group {
+  color: $name-fg;
+
+  em {
+    font-style: inherit;
+    color: $name-em-color;
+  }
+
+  .extra-name {
+    background-color: $name-bg;
+
+    a {
+      cursor: pointer;
+      font-size: $big-font;
+    }
+  }
+
+  .req-text {
+    background-color: $req-text-bg;
+    font-size: $medium-font;
+  }
+
+  .options {
+    font-size: $big-font;
+
+    &>div {
+      border-bottom: 1px solid $list-separator;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    .option {
+      cursor: pointer;
+      user-select: none;
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked ~ .checkmark {
+          &:after {
+            display: block;
+            background: $input-outline;
+          }
+        }
+      }
+
+      &:hover input ~ .checkmark {
+        background-color: $input-hover;
+      }
+
+      .checkmark {
+        position: relative;
+        height: 24px;
+        width: 24px;
+        border: 3px solid $input-outline;
+
+        &.radio {
+          border-radius: 50%;
+          &:after {
+            border-radius: 50%;
+          }
+        }
+
+        &:after {
+          position: absolute;
+          content: "";
+          display: none;
+          width: 18px;
+          height: 18px;
+          border: 3px solid white;
+          background: $input-outline;
+        }
+      }
+    }
+  }
+}
+
