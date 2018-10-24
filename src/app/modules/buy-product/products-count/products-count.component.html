@@ -1,0 +1,5 @@
+<div class="product-count">
+  <button (click)="changeCount(-1)" [disabled]="value === min">-</button>
+    {{value}}
+  <button (click)="changeCount()" [disabled]="value === max">+</button>
+</div>

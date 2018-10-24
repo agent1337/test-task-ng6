@@ -1,0 +1,18 @@
+<ngx-spinner
+  bdColor = "rgba(0,0,0,0.3)"
+  size = "large"
+  color = "rgb(0, 136, 255)"
+  type = "line-scale-pulse-out">
+</ngx-spinner>
+<div>
+  <div *ngIf="!products">There is no products!</div>
+
+  <ul *ngIf="products" class="d-flex flex-column">
+    <li
+    class="py-2 px-4"
+    *ngFor="let product of products; trackBy: trackByFn">
+      <app-product-item [product]="product"></app-product-item>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

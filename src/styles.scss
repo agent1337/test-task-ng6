@@ -1,0 +1,101 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,600,700&subset=cyrillic-ext');
+
+@import './theme/theme-variables';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  background-color: $background;
+  // min-width: 360px;
+  color: $foreground;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+::selection {
+  color: $selection-fg;
+  background-color: $selection-bg;
+}
+
+::-moz-selection {
+  color: $selection-fg;
+  background-color: $selection-bg;
+}
+
+h1 {
+  font-size: $large-font;
+  font-weight: 300;
+}
+
+a {
+  color: $foreground;
+  transition: color $default-transition;
+  &:hover {
+    color: $foreground-hover;
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  font-size: $medium-font;
+  font-weight: 600;
+
+  li {
+    position: relative;
+    border-bottom: solid 1px $list-separator;
+    transition: background-color $default-transition;
+    // a {
+    //   transition: color .2s ease-in;
+      &:hover {
+        background-color: $item-hover;
+        // transform: scale(1.005, 1.005);
+      }
+    // }
+  }
+}
+
+input[type="number"], button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+
+  &:hover {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:active {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background-color: unset;
+    color: unset;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

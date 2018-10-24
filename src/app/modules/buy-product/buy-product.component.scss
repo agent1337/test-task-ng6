@@ -1,0 +1,68 @@
+@import "../../../theme/theme-variables.scss";
+
+$icon-color: #737373;
+$icon-color-hover: #0088ff;
+$desk-color: #4b4b4b;
+$text-color: #000;
+$btn-bg: #372921;
+$btn-fg: #FFF;
+$btn-disabled-fg: #acacb1;
+
+.product {
+  color: $text-color;
+  .back {
+    position: absolute;
+    z-index: 1;
+    .back-icon {
+      height: 46px;
+      width: 46px;
+      border-radius: 50%;
+      background-color: #FFF;
+      fill: $icon-color;
+      cursor: pointer;
+      transition: fill .3s ease-in-out;
+      &:hover {
+        fill: $icon-color-hover;
+      }
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    min-width: 360px;
+    min-height: 160px;
+    object-fit: cover;
+  }
+
+  .description {
+    border-bottom: solid 1px $list-separator;
+
+    h6 {
+      color: $desk-color;
+    }
+  }
+
+  .price-count {
+    font-size: 20px;
+  }
+  .submit {
+    background-color: $btn-bg;
+    color: $btn-fg;
+    cursor: pointer;
+
+    svg {
+      fill: $btn-fg;
+    }
+
+    &:disabled {
+      color: $btn-disabled-fg;
+      cursor: not-allowed;
+
+      svg {
+        fill: $btn-disabled-fg;
+      }
+    }
+  }
+
+}

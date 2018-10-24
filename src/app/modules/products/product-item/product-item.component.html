@@ -1,0 +1,7 @@
+<a *ngIf="product" routerLink="./buy/{{product.id}}" class="d-flex justify-content-between align-items-center">
+  <div class="d-flex flex-column">
+    <span>{{product.name}}</span>
+    <small>{{product.description}}</small>
+  </div>
+  <span class="price">$ {{product.price}}</span>
+</a>

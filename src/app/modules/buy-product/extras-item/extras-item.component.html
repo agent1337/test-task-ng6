@@ -1,0 +1,29 @@
+<div *ngIf="data">
+  <div>
+    <h3 class="text-uppercase">
+      {{data.name}}
+      <em *ngIf="isRequired">
+        required
+      </em>
+    </h3>
+    <a *ngIf="!isRequired && data.items.length > 0" (click)="reset()">
+      reset
+    </a>
+  </div>
+  <div *ngIf="isRequired">
+    Please select 1 item
+  </div>
+  <div>
+    <div *ngFor="let item of data.options; trackBy: trackByFn; let ind = index;">
+      <input
+        [type]="inputType"
+        [value]="item"
+        [name]="data.id"
+        [id]="item.id"
+        (change)="onSelectionChange($event, item)"
+        [checked]="isChecked(item)"
+        >
+      <label for="item.id">{{item.name}}</label>
+    </div>
+  </div>
+</div>

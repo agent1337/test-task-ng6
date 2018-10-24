@@ -1,0 +1,35 @@
+$large-font: 36px;
+$medium-font: 16px;
+$small-font: 13px;
+
+$default-transition: .5s cubic-bezier(0.23, 1, 0.320, 1);
+
+$background: #FFFFFF;
+$foreground: #131313;
+$foreground-hover: #0088ff;
+$selection-fg: #fff;
+$selection-bg: #4e4e4e;
+$small-font-color: #4e4e4e;
+$price-color: #4e4e4e;
+$list-separator: #f2f2f2;
+$item-hover: #fafdff;
+
+@mixin transition($transition) {
+  transition: $transition;
+}
+
+@mixin transition-property($property) {
+  transition-property: $property;
+}
+
+@mixin transition-duration($duration) {
+  transition-property: $duration;
+}
+
+@mixin transition-timing-function($timing) {
+  transition-timing-function: $timing;
+}
+
+@mixin transition-delay($delay) {
+  transition-delay: $delay;
+}

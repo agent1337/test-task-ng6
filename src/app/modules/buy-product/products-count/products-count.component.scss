@@ -1,0 +1,27 @@
+@import "../../../../theme/theme-variables.scss";
+
+$inc-btn-bg: #9b6f4c;
+$inc-btn-disabled-bg: #acacb1;
+$inc-btn-fg: #FFF;
+$inc-btn-size: 34px;
+
+input {
+  font-weight: inherit;
+}
+
+.product-count {
+
+  button {
+    background-color: $inc-btn-bg;
+    color: $inc-btn-fg;
+    cursor: pointer;
+    border-radius: 50%;
+    height: $inc-btn-size;
+    width: $inc-btn-size;
+
+    &:disabled {
+      background-color: $inc-btn-disabled-bg;
+      cursor: not-allowed;
+    }
+  }
+}

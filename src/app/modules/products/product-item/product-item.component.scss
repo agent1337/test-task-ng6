@@ -1,0 +1,13 @@
+@import "../../../../theme/theme-variables.scss";
+
+small {
+  font-size: $small-font;
+  opacity: .8;
+}
+
+.price {
+  color: $price-color;
+  font-weight: bold;
+  min-width: fit-content;
+}
+
